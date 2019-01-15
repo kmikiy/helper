@@ -2,6 +2,7 @@ package labeled
 
 import (
 	"testing"
+	"time"
 )
 
 func TestBool(t *testing.T) {
@@ -539,6 +540,35 @@ func TestComplex128(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := Complex128(tt.args.label, tt.args.value); got != tt.want {
 				t.Errorf("Complex128() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestTime(t *testing.T) {
+	now := time.Now()
+	type args struct {
+		label string
+		value time.Time
+	}
+	tests := []struct {
+		name string
+		args args
+		want time.Time
+	}{
+		{
+			name: "Time",
+			args: args{
+				label: "Now",
+				value: now,
+			},
+			want: now,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := Time(tt.args.label, tt.args.value); got != tt.want {
+				t.Errorf("Time() = %v, want %v", got, tt.want)
 			}
 		})
 	}

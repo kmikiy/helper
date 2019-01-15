@@ -1,5 +1,7 @@
 package labeled
 
+import "time"
+
 func Bool(label string, value bool) bool {
 	return value
 }
@@ -73,5 +75,9 @@ func Complex64(label string, value complex64) complex64 {
 }
 
 func Complex128(label string, value complex128) complex128 {
+	return value
+}
+
+func Time(label string, value time.Time) time.Time {
 	return value
 }

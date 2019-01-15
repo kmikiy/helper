@@ -1,5 +1,7 @@
 package ptr
 
+import "time"
+
 func Bool(value bool) *bool {
 	return &value
 }
@@ -73,5 +75,9 @@ func Complex64(value complex64) *complex64 {
 }
 
 func Complex128(value complex128) *complex128 {
+	return &value
+}
+
+func Time(value time.Time) *time.Time {
 	return &value
 }
