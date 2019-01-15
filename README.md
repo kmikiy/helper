@@ -17,32 +17,32 @@ go get github.com/kmikiy/helper/...
 
 ```go
 import (
-	"log"
-	"time"
+    "log"
+    "time"
 
-	"github.com/kmikiy/helper/ptr"
+    "github.com/kmikiy/helper/ptr"
 )
 
 type Subscription struct {
-	Name         string
-	SubscribedAt *time.Time
+    Name         string
+    SubscribedAt *time.Time
 }
 
 func main() {
     // with "github.com/kmikiy/helper/ptr"
-	sub := Subscription{
-		Name:         "pro",
-		SubscribedAt: ptr.Time(time.Now()),
-	}
+    sub := Subscription{
+        Name:         "pro",
+        SubscribedAt: ptr.Time(time.Now()),
+    }
 
     log.Printf("sub: %#+v\n", sub)
     
     // without "github.com/kmikiy/helper/ptr"
     now := time.Now() 
     sub := Subscription{
-		Name:         "pro",
-		SubscribedAt: &now,
-	}
+        Name:         "pro",
+        SubscribedAt: &now,
+    }
 
     log.Printf("sub: %#+v\n", sub)
 }
@@ -55,15 +55,15 @@ func main() {
 
 ```go
 import (
-	"log"
-	"time"
+    "log"
+    "time"
 
-	l "github.com/kmikiy/helper/labeled"
+    l "github.com/kmikiy/helper/labeled"
 )
 
 func fetch(limit int, offset int) {
-	log.Printf("limit: %#+v\n", offset)
-	log.Printf("offset: %#+v\n", offset)
+    log.Printf("limit: %#+v\n", offset)
+    log.Printf("offset: %#+v\n", offset)
 }
 
 func main() {
@@ -71,7 +71,7 @@ func main() {
     fetch(l.Int("limit", 1), l.Int("offset", 20))
     
     // without "github.com/kmikiy/helper/labeled"
-	fetch(1, 20)
+    fetch(1, 20)
 }
 
 ```
